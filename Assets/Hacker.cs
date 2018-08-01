@@ -100,17 +100,7 @@ public class Hacker : MonoBehaviour {
 
     void PasswordGuess(string input)
     {
-        if (level == 1 && input == password)
-        {
-            DisplayWinScreen();
-            Terminal.WriteLine(menuTip);
-        }
-        else if (level == 2 && input == password)
-        {
-            DisplayWinScreen();
-            Terminal.WriteLine(menuTip);
-        }
-        else if (level == 3 && input == password)
+        if (input == password)
         {
             DisplayWinScreen();
             Terminal.WriteLine(menuTip);
