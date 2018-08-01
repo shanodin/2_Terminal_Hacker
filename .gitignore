@@ -260,11 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 
-#other
-Libraries/
-obj/
-Packages/
-ProjectSettings/
-Temp/
-Assets/Scenes/
-Assets/WM2000/
+
