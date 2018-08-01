@@ -13,8 +13,8 @@ public class Hacker : MonoBehaviour {
         Password,
         Win
     };
-
     private Screen currentScreen;
+    private string password;
 
     // Use this for initialization
 	void Start ()
@@ -26,11 +26,9 @@ public class Hacker : MonoBehaviour {
     {
         currentScreen = Screen.MainMenu;
         Terminal.ClearScreen();
-        Terminal.WriteLine("Hey");
         Terminal.WriteLine("Solve an anagram");
         Terminal.WriteLine("Press 1 for Easy");
         Terminal.WriteLine("Press 2 for Medium");
-        Terminal.WriteLine("Press 3 for Hard");
         Terminal.WriteLine("Enter your selection: ");
     }
 
@@ -39,11 +37,13 @@ public class Hacker : MonoBehaviour {
         if (input == "1")
         {
             level = 1;
+            password = "otters";
             StartGame();
         }
         else if (input == "2")
         {
             level = 2;
+            password = "foxes";
             StartGame();
         }
         else if (input == "007")
@@ -62,15 +62,36 @@ public class Hacker : MonoBehaviour {
         {
             ShowMainMenu();
         }
+        else if (currentScreen == Screen.Password)
+        {
+            PasswordGuess(input);
+        }
         else if (currentScreen == Screen.MainMenu)
         {
             RunMainMenu(input);
         }
     }
 
-     void StartGame() { 
+     void StartGame()
+     { 
         Terminal.WriteLine("You have chosen level " + level);
         Terminal.WriteLine("Please enter a password");
-         currentScreen = Screen.Password;
+        currentScreen = Screen.Password;
      }
+
+    void PasswordGuess(string input)
+    {
+        if (level == 1 && input == password)
+        {
+            Terminal.WriteLine("Nice guess, let's play");
+        }
+        else if (level == 2 && input == password)
+        {
+            Terminal.WriteLine("Nice guess, let's play");
+        }
+        else
+        {
+            Terminal.WriteLine("Guess again");
+        }
+    }
 }
